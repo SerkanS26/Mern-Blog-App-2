@@ -23,12 +23,20 @@ const Writepage = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post(
+          "https://mern-blog-app-2.up.railway.app/api/upload",
+          data
+        );
       } catch (error) {}
     }
     try {
-      const res = await axios.post("/posts", newPost);
-      window.location.replace("/post/" + res.data._id);
+      const res = await axios.post(
+        "https://mern-blog-app-2.up.railway.app/api/posts",
+        newPost
+      );
+      window.location.replace(
+        "https://mern-blog-app-2.up.railway.app/api/post/" + res.data._id
+      );
     } catch (error) {}
   };
 

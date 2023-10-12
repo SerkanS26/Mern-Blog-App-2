@@ -7,7 +7,9 @@ const Sidebar = () => {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/categories");
+      const res = await axios.get(
+        "https://mern-blog-app-2.up.railway.app/api/categories"
+      );
 
       setCats(res.data);
     };

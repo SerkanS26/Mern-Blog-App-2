@@ -9,7 +9,9 @@ const SinglePost = () => {
   const path = location.pathname.split("/")[2];
 
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  // const PF = "http://localhost:5000/images/";
+  const PF = "https://mern-blog-app-2.up.railway.app/images/";
+
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -17,7 +19,9 @@ const SinglePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get(`/posts/${path}`);
+      const res = await axios.get(
+        `https://mern-blog-app-2.up.railway.app/api/posts/${path}`
+      );
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -27,20 +31,26 @@ const SinglePost = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("/posts/" + path, {
-        data: { username: user.username },
-      });
+      await axios.delete(
+        "https://mern-blog-app-2.up.railway.app/api/posts/" + path,
+        {
+          data: { username: user.username },
+        }
+      );
       window.location.replace("/");
     } catch (error) {}
   };
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/posts/${post._id}`, {
-        username: user.username,
-        title,
-        desc,
-      });
+      await axios.put(
+        `https://mern-blog-app-2.up.railway.app/api/posts/${post._id}`,
+        {
+          username: user.username,
+          title,
+          desc,
+        }
+      );
       setUpdateMode(false);
     } catch (error) {}
   };

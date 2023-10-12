@@ -5,7 +5,8 @@ import { Context } from "../../context/Context";
 
 const TopBar = () => {
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/";
+  // const PF = "http://localhost:5000/images/";
+  const PF = "https://mern-blog-app-2.up.railway.app/images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
