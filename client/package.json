@@ -39,5 +39,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://mern-blog-app-2.up.railway.app/"
+  "proxy": "https://mern-blog-app-2.up.railway.app/api/"
 }
