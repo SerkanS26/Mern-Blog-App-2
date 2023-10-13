@@ -1,10 +1,13 @@
 // -- express --
 const express = require("express");
 const app = express();
-
+const cors = require("cors");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
+
+// -- Cors --
+app.use(cors());
 
 // -- body parser --
 const bodyParser = require("body-parser");
